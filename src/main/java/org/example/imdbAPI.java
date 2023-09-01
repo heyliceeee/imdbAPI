@@ -95,17 +95,22 @@ public class imdbAPI {
 
             JSONArray jsonMovies = new JSONObject(returnJSON).getJSONArray("items");
 
-            ArrayList<String> titulo = new ArrayList<>();
-            ArrayList<String> imagem = new ArrayList<>();
+            List<Movie> movies = new ArrayList<>();
 
+            for(Object obj : jsonMovies){
+                JSONObject movieJson = (JSONObject) obj;
+                Movie movie = new Movie(
+                        movieJson.getString("title"),
+                        movieJson.getString("image"),
+                        movieJson.getDouble("imDbRating"),
+                        movieJson.getInt("year"));
 
-            for (Object a : jsonMovies) {
-                titulo.add( ((JSONObject) a).getString("title") );
-                imagem.add( ((JSONObject) a).getString("image") );
+                movies.add(movie);
             }
 
-            System.out.println(titulo);
-            System.out.println(imagem);
+        for (Movie movie : movies) {
+            System.out.println(movie);
+        }
     }
 }
 

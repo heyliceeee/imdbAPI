@@ -41,13 +41,13 @@ public class HTMLGenerator {
     }
 
     private void writeBody(List<Movie> movies) throws Exception {
-        writer.write("<ul>");
+        writer.write("<div class=\"mx-3\">");
         writer.write("<br>");
         writer.write("<div class=\"row\">");
 
         for (Movie movie : movies) {
-            writer.write("<div class=\"col-sm-2 mb-1 mb-sm-0\">");
-            writer.write("<div class=\"card\" style=\"width: 18rem;\">");
+            writer.write("<div class=\"col-2 mb-4\">");
+            writer.write("<div class=\"card h-100\" style=\"width: 18rem;\">");
             writer.write("<img src=\"" + movie.getImage() + "\" class=\"card-img-top\" alt=\"" + movie.getTitle() + "\">");
             writer.write("<div class=\"card-body\">");
 
@@ -57,11 +57,11 @@ public class HTMLGenerator {
 
             writer.write("</div>");
             writer.write("</div>");
-            writer.write("<br>");
             writer.write("</div>");
         }
+
         writer.write("</div>");
-        writer.write("</ul>");
+        writer.write("</div>");
     }
 
     private void writeFooter() throws Exception {

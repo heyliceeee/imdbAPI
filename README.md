@@ -30,4 +30,4 @@ Desenvolver um sistema em Java que consome e processa dados da API do IMDB, mode
 ## Website
 **Preview**
 
-![Website](https://ufile.io/au2l29c5)
+![Website](/src/main/java/assets/website.png)

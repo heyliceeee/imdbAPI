@@ -17,7 +17,7 @@ import org.json.JSONObject;
 
 public class imdbAPI {
 
-    static void get250Movies(){
+    static void get250Movies() {
         try {
             //criar um httpclient
             HttpClient client = HttpClient.newHttpClient();
@@ -38,50 +38,12 @@ public class imdbAPI {
             //imprimir a resposta
             System.out.println(response.body());
 
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    static void getTitleURLImage250Movies(){
-            String returnJSON;
-
-            //criar um httpclient
-            HttpClient client = HttpClient.newHttpClient();
-
-            //criar um httprequest
-            HttpRequest request = HttpRequest
-                    .newBuilder()
-                    .uri(URI.create("https://raw.githubusercontent.com/alura-cursos/imersao-java-2-api/main/TopMovies.json"))
-                    .GET() //especifica que é um request do tipo GET
-                    .build();
-
-            //enviar o request e obter a resposta
-            returnJSON = client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
-                    .thenApply(HttpResponse::body)
-                    .join();
-
-            JSONArray jsonMovies = new JSONObject(returnJSON).getJSONArray("items");
-
-            List<Movie> movies = new ArrayList<>();
-
-            for(Object obj : jsonMovies){
-                JSONObject movieJson = (JSONObject) obj;
-                Movie movie = new Movie(
-                        movieJson.getString("title"),
-                        movieJson.getString("image"),
-                        movieJson.getDouble("imDbRating"),
-                        movieJson.getInt("year"));
-
-                movies.add(movie);
-            }
-
-        for (Movie movie : movies) {
-            System.out.println(movie);
-        }
-    }
-
-    static void getHTML(){
+    static void getTitleURLImage250Movies() {
         String returnJSON;
 
         //criar um httpclient
@@ -103,7 +65,45 @@ public class imdbAPI {
 
         List<Movie> movies = new ArrayList<>();
 
-        for(Object obj : jsonMovies){
+        for (Object obj : jsonMovies) {
+            JSONObject movieJson = (JSONObject) obj;
+            Movie movie = new Movie(
+                    movieJson.getString("title"),
+                    movieJson.getString("image"),
+                    movieJson.getDouble("imDbRating"),
+                    movieJson.getInt("year"));
+
+            movies.add(movie);
+        }
+
+        for (Movie movie : movies) {
+            System.out.println(movie);
+        }
+    }
+
+    static void getHTML() {
+        String returnJSON;
+
+        //criar um httpclient
+        HttpClient client = HttpClient.newHttpClient();
+
+        //criar um httprequest
+        HttpRequest request = HttpRequest
+                .newBuilder()
+                .uri(URI.create("https://raw.githubusercontent.com/alura-cursos/imersao-java-2-api/main/TopMovies.json"))
+                .GET() //especifica que é um request do tipo GET
+                .build();
+
+        //enviar o request e obter a resposta
+        returnJSON = client.sendAsync(request, HttpResponse.BodyHandlers.ofString())
+                .thenApply(HttpResponse::body)
+                .join();
+
+        JSONArray jsonMovies = new JSONObject(returnJSON).getJSONArray("items");
+
+        List<Movie> movies = new ArrayList<>();
+
+        for (Object obj : jsonMovies) {
             JSONObject movieJson = (JSONObject) obj;
             Movie movie = new Movie(
                     movieJson.getString("title"),

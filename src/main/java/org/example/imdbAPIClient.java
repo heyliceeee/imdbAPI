@@ -7,15 +7,11 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-public class imdbAPI {
+public class imdbAPIClient {
 
     static void get250Movies() {
         try {

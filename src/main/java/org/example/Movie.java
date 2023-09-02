@@ -1,5 +1,6 @@
 package org.example;
 
+
 public class Movie {
     private String title;
     private String image;
@@ -46,7 +47,7 @@ public class Movie {
         this.year = year;
     }
 
-
+    
     @Override
     public String toString() {
         return "Movie{" +

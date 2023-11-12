@@ -1,6 +1,6 @@
-# Website de Filmes
+# Film Website
 
-Implementação do desafio [#7DaysOfCode - Java](https://7daysofcode.io/) do site #7DaysOfCode.
+Challenge implementation [#7DaysOfCode - Java](https://7daysofcode.io/) from the #7DaysOfCode website.
 
 ## Stack
 - Java
@@ -9,8 +9,8 @@ Implementação do desafio [#7DaysOfCode - Java](https://7daysofcode.io/) do sit
 - HTML
 - Bootstrap
 
-## Objetivo
-Desenvolver um sistema em Java que consome e processa dados da API do IMDB, modela-os em objetos, gera uma visualização HTML e refina o código para ser bem estruturado e extensível.
+## Goal
+Develop a Java system that consumes and processes data from the IMDB API, models it into objects, generates an HTML view, and refines the code to be well-structured and extensible.
 
 ## API
 **Response**
